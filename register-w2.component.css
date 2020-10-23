@@ -1,0 +1,51 @@
+#header {
+    margin: 0;
+    height: 71px;
+    border-bottom: 1px solid #eee!important;
+    overflow: hidden;
+    padding: 0 30px;
+    border-width: 0;
+    min-height: 28px;
+    background: #f4f4f4!important;
+}
+#logo-group>span {
+    margin-top: 22px;
+}
+#logo img {
+    width: 137px;
+}
+#main {
+    margin: 0;
+}
+#main .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+.visible-warning {
+    background: #fcc !important;
+    border-color: #f55 !important;
+}
+
+.row {
+    overflow: visible !important;
+}
+#smart-form-register .message-visible {
+    display: block;
+}
+#smart-form-register .message * {
+    text-align: center;
+}
+.language {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+}
+.language > div {
+    margin: 15px 10px;
+}
+.wrong-auth {
+    color: #ff3030;
+}

@@ -1,0 +1,91 @@
+<header id="header">
+  <div id="logo-group">
+      <span id="logo"> <img src="../../../assets/img/logo.png" alt="SmartAdmin"> </span>
+  </div>
+
+  <span id="extr-page-header-space">
+      <span class="hidden-mobile hiddex-xs">{{ls.currentLan.already_registered}}</span>
+      <a routerLink="/login" class="btn btn-danger">{{ls.currentLan.sign_in}}</a>
+  </span>
+
+</header>
+
+<div id="main" role="main">
+
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
+
+      <div class="row">
+
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-6">
+              <div class="well no-padding">
+
+                  <div id="smart-form-register" class="smart-form client-form">
+                      <header>
+                          {{ls.currentLan.registration}}
+                          <div class="language">
+                              <ul class="header-dropdown-list hidden-xs">
+                                  <li>
+                                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                          <span> {{ls.getAbb()}}</span>
+                                          <i class="fa fa-angle-down"></i>
+                                      </a>
+                                      <ul class="dropdown-menu pull-right">
+                                          <li *ngFor="let item of ls.names; let i = index;" [ngClass]="{'active':ls.getActive(i)}"
+                                              (click)="ls.changeLanguage(i)">
+                                              <a >{{item}}</a>
+                                          </li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                      </header>
+
+                      <fieldset>
+                          <section>
+                              <label class="input"> <i class="icon-append fa fa-user"></i>
+                                  <input type="text"  [(ngModel)]="user.login" validation-login="{{user.login}}" placeholder="{{ls.currentLan.username}}">
+                                  <b class="tooltip tooltip-bottom-right">{{ls.currentLan.dont_forget_your_username}}</b> </label>
+                          </section>
+                          <section>
+                              <label class="input"><i class="icon-append fa fa-envelope"></i>
+                                  <input type="mail" [(ngModel)]="user.personal_mail" validation-email="{{user.personal_mail}}"
+                                         placeholder="{{ls.currentLan.personal_email}}">
+                                  <b class="tooltip tooltip-bottom-right">{{ls.currentLan.dont_forget_your_email}}</b></label>
+                          </section>
+
+                          <section>
+                              <label class="input"> <i class="icon-append fa fa-lock"></i>
+                                  <input type="password" [(ngModel)]="user.password" validation-password="{{user.password}}"
+                                         placeholder="{{ls.currentLan.password}}" id="password">
+                                  <b class="tooltip tooltip-bottom-right">{{ls.currentLan.dont_forget_your_password}}</b> </label>
+                          </section>
+
+                          <section>
+                              <label class="input"> <i class="icon-append fa fa-lock"></i>
+                                  <input type="password" [(ngModel)]="user.passwordConfirm"
+                                         confirm-password  [password]="user.password"
+                                         [confirmPassword]="user.passwordConfirm"
+                                         placeholder="{{ls.currentLan.confirm_password}}">
+                                  <b class="tooltip tooltip-bottom-right">{{ls.currentLan.dont_forget_your_password}}</b></label>
+                          </section>
+                      </fieldset>
+
+                      <footer>
+                          <label class="wrong-auth" *ngIf="regError">{{ls.currentLan.this_user_already_exists}} </label>
+                          <button class="btn btn-primary" (click)="startRegistration()">
+                              {{ls.currentLan.registration}}
+                          </button>
+                      </footer>
+                      <div class="message" [ngClass]="{'message-visible': message}">
+                          <i class="fa fa-check"></i>
+                          <p>
+                              {{ls.currentLan.thank_you_for_your_registration}}
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
